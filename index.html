@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#ef2b2d" />
+    <meta
+      name="description"
+      content="プログラミング第1回の授業資料・人間プログラミング・確認テスト"
+    />
+    <title>プログラミング 第1回｜オンライン教室</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">本文へ移動</a>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <div class="brand" aria-label="プログラミング 第1回">
+          <span class="brand__mark" aria-hidden="true">P</span>
+          <span>
+            <strong>プログラミング 第1回</strong>
+            <small>オンライン教室</small>
+          </span>
+        </div>
+
+        <nav class="main-nav" aria-label="学習メニュー">
+          <button class="nav-button is-active" type="button" data-view="materials" aria-current="page">
+            <span aria-hidden="true">①</span> 授業資料
+          </button>
+          <button class="nav-button" type="button" data-view="game">
+            <span aria-hidden="true">②</span> 人間プログラミング
+          </button>
+          <button class="nav-button" type="button" data-view="quiz">
+            <span aria-hidden="true">③</span> 確認テスト
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="view is-active" id="view-materials" data-view-panel="materials">
+        <div class="page-shell">
+          <header class="section-heading">
+            <p class="eyebrow">STEP 1</p>
+            <h1>授業資料を見る</h1>
+            <p>先生の説明を聞きながら、必要なページを開いて確認しよう。</p>
+          </header>
+
+          <div class="material-actions" aria-label="資料の操作">
+            <a class="button button--primary" href="./assets/lesson-1.pdf" target="_blank" rel="noreferrer">
+              資料を大きく開く
+            </a>
+            <a class="button button--secondary" href="./assets/lesson-1.pdf" download>
+              PDFを保存する
+            </a>
+          </div>
+
+          <div class="pdf-frame">
+            <iframe
+              src="./assets/lesson-1.pdf#view=FitH"
+              title="プログラミング第1回 授業資料"
+            ></iframe>
+            <p class="pdf-fallback">
+              資料が表示されない場合は、上の「資料を大きく開く」を押してください。
+            </p>
+          </div>
+
+          <div class="next-step">
+            <p><strong>資料を確認できたら、実際にロボットへ命令してみよう。</strong></p>
+            <button class="button button--primary" type="button" data-go-view="game">
+              人間プログラミングへ
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" id="view-game" data-view-panel="game" hidden>
+        <div class="page-shell page-shell--wide">
+          <header class="section-heading section-heading--compact">
+            <p class="eyebrow">STEP 2</p>
+            <h1>人間プログラミング</h1>
+            <p>「ロボットが」「前に1マス」「進む」のようにカードを組み合わせよう。完成した命令は1行にまとまります。</p>
+          </header>
+
+          <div class="mission-tabs" id="mission-tabs" aria-label="問題を選ぶ"></div>
+
+          <section class="mission-card" aria-labelledby="mission-title">
+            <div class="mission-card__number" id="mission-number" aria-hidden="true">1</div>
+            <div>
+              <p class="mission-card__label">MISSION</p>
+              <h2 id="mission-title">スタートからゴールまでロボットを動かそう</h2>
+              <p id="mission-goal"></p>
+            </div>
+          </section>
+
+          <div class="game-stage">
+            <section class="board-panel" aria-labelledby="board-heading">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-heading__kicker">FIELD</p>
+                  <h3 id="board-heading">フィールド</h3>
+                </div>
+                <span class="scenario-badge" id="scenario-badge">4×4</span>
+              </div>
+
+              <div class="board-wrap">
+                <div class="board" id="board" role="grid" aria-label="ロボットのフィールド"></div>
+              </div>
+
+              <div class="robot-status" aria-live="polite">
+                <span class="robot-status__icon" aria-hidden="true">🤖</span>
+                <div>
+                  <small>ロボットの状態</small>
+                  <strong id="robot-status-text">スタート地点・下向き</strong>
+                </div>
+              </div>
+            </section>
+
+            <aside class="rules-panel" aria-labelledby="rules-heading">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-heading__kicker">RULES</p>
+                  <h3 id="rules-heading">ルールとポイント</h3>
+                </div>
+              </div>
+              <ul class="rule-list">
+                <li>STARTから始める</li>
+                <li>最初は下向き</li>
+                <li>外側はすべて壁</li>
+                <li>命令は上から順番に実行</li>
+              </ul>
+              <div class="goal-box">
+                <span>今回のゴール条件</span>
+                <p id="goal-condition"></p>
+              </div>
+              <div class="point-box">
+                <span>ポイント</span>
+                <p id="mission-point"></p>
+              </div>
+            </aside>
+          </div>
+
+          <div class="coding-area">
+            <section class="palette-panel" aria-labelledby="palette-heading">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-heading__kicker">CARDS</p>
+                  <h3 id="palette-heading">命令カード</h3>
+                </div>
+                <span class="panel-note">タップで追加／つまんで移動</span>
+              </div>
+              <div class="palette" id="palette"></div>
+            </section>
+
+            <section class="workspace-panel" aria-labelledby="workspace-heading">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-heading__kicker">PROGRAM</p>
+                  <h3 id="workspace-heading">プログラム</h3>
+                </div>
+                <div class="workspace-meta">
+                  <span class="indent-legend">← → インデント</span>
+                  <span class="card-count" id="card-count">0枚</span>
+                </div>
+              </div>
+
+              <p class="indent-guide">
+                繰り返し・条件分岐の中で行う命令は「→」で右へずらします。インデントが左へ戻ると、その処理は終了です。
+              </p>
+
+              <div class="workspace" id="workspace" aria-label="命令カードを並べる場所">
+                <div class="workspace-empty" id="workspace-empty">
+                  <span aria-hidden="true">＋</span>
+                  <strong>ここに命令カードを並べよう</strong>
+                  <small>カードをタップしても追加できます</small>
+                </div>
+              </div>
+
+              <div class="program-actions">
+                <button class="button button--secondary" type="button" id="clear-program">すべて消す</button>
+                <button class="button button--run" type="button" id="run-program">
+                  <span aria-hidden="true">▶</span> 実行する！
+                </button>
+              </div>
+
+              <div class="run-result" id="run-result" aria-live="polite">
+                <span class="run-result__icon" aria-hidden="true">💡</span>
+                <p>カードを並べたら、実行して動きを確かめよう。</p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" id="view-quiz" data-view-panel="quiz" hidden>
+        <div class="page-shell page-shell--quiz">
+          <header class="section-heading">
+            <p class="eyebrow">STEP 3</p>
+            <h1>第1回 確認テスト</h1>
+            <p>（　）に当てはまる言葉を入力しよう。空白や大文字・小文字の違いは採点に影響しません。</p>
+          </header>
+
+          <form id="quiz-form" novalidate>
+            <div class="quiz-list" id="quiz-list"></div>
+            <div class="quiz-submit-bar">
+              <p>全部入力できたら採点しよう。何度でもやり直せます。</p>
+              <button class="button button--run" type="submit">解答する！</button>
+            </div>
+          </form>
+
+          <section class="quiz-result" id="quiz-result" aria-live="polite" hidden>
+            <div class="quiz-result__score">
+              <span id="quiz-score">0</span><small>／9問</small>
+            </div>
+            <div>
+              <h2 id="quiz-result-title">採点結果</h2>
+              <p id="quiz-result-message"></p>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <div class="drag-ghost" id="drag-ghost" aria-hidden="true"></div>
+
+    <script type="module" src="./app.mjs"></script>
+  </body>
+</html>
