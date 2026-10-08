@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17263c">
+  <meta name="description" content="篠崎中学校チャレンジクラスのPythonコーディング課題。print、変数、再代入、f文字列を使う8問に、自分のペースで取り組みましょう。">
+  <title>Python コーディング課題 | 篠崎中学校</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">問題文へ移動</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./index.html" aria-label="Python コーディング課題のトップへ">
+        <svg class="brand-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="12" fill="currentColor"/><path d="m11 13 7 7-7 7M22 27h8" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="brand-copy"><span class="brand-name">Python Lesson</span><span class="brand-subtitle">篠崎中学校 チャレンジクラス</span></span>
+      </a>
+      <a class="tech-link" href="https://tech-nexus.jp" target="_blank" rel="noopener noreferrer">
+        TechNexusを開く
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M11 4h5v5M16 4l-8 8M8 4H4v12h12v-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="sr-only">（新しいタブ）</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="page-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <div class="intro-copy">
+        <p class="eyebrow"><span aria-hidden="true"></span>書いて、動かして、確かめよう</p>
+        <h1 id="page-title">Python <span>コーディング課題</span></h1>
+        <p class="intro-text">コードはTechNexusで実行します。<br class="mobile-break">問題ごとに別のプログラムを作り、出力例と見比べましょう。</p>
+      </div>
+      <div class="intro-note">
+        <span class="note-icon" aria-hidden="true">?</span>
+        <div><strong>資料・AIを使ってOK</strong><p>困ったときは、授業資料・AIレビュー・<br class="desktop-break">AIサポーターを使ってみましょう。</p></div>
+      </div>
+    </section>
+
+    <details class="how-to">
+      <summary><span>取り組み方</span><span class="summary-caption">はじめる前に確認しよう</span></summary>
+      <div class="how-to-content">
+        <ol>
+          <li>TechNexusで、問題ごとに別のプログラムを作りましょう。</li>
+          <li>コードを書いて実行し、出力例と見比べましょう。</li>
+          <li>困ったときは、授業資料・AIレビュー・AIサポーターを使ってOKです。</li>
+          <li>問1〜問6が終わったら、問7・問8にも挑戦しましょう。</li>
+        </ol>
+      </div>
+    </details>
+
+    <div class="workspace">
+      <aside class="question-sidebar" aria-label="問題の一覧">
+        <div class="sidebar-heading"><h2>問題をえらぶ</h2><span>全8問</span></div>
+        <nav class="question-nav" aria-label="問題を切り替える">
+          <a href="#q1" aria-label="問1 あいさつを表示する"><span class="nav-number">1</span><span class="nav-copy"><span class="nav-group">基本</span><span class="nav-title">あいさつを表示する</span></span><span class="nav-arrow" aria-hidden="true">›</span></a>
+          <a href="#q2" aria-label="問2 ゲームのメッセージを表示する"><span class="nav-number">2</span><span class="nav-copy"><span class="nav-group">基本</span><span class="nav-title">ゲームのメッセージ</span></span><span class="nav-arrow" aria-hidden="true">›</span></a>
+          <a href="#q3" aria-label="問3 好きなものを変数に入れる"><span class="nav-number">3</span><span class="nav-copy"><span class="nav-group">基本</span><span class="nav-title">好きなものと変数</span></span><span class="nav-arrow" aria-hidden="true">›</span></a>
+          <a href="#q4" aria-label="問4 同じ変数を何度も使う"><span class="nav-number">4</span><span class="nav-copy"><span class="nav-group">基本</span><span class="nav-title">同じ変数を何度も</span></span><span class="nav-arrow" aria-hidden="true">›</span></a>
+          <a href="#q5" aria-label="問5 変数の中身を変更する f文字列の説明もあります"><span class="nav-number">5</span><span class="nav-copy"><span class="nav-group">基本 · f文字列</span><span class="nav-title">変数の中身を変更</span></span><span class="nav-arrow" aria-hidden="true">›</span></a>
+          <a href="#q6" aria-label="問6 間違ったコードを直す"><span class="nav-number">6</span><span class="nav-copy"><span class="nav-group">基本</span><span class="nav-title">コードを直す</span></span><span class="nav-arrow" aria-hidden="true">›</span></a>
+          <a href="#q7" aria-label="問7 チャレンジ キャラクターを紹介する"><span class="nav-number">7</span><span class="nav-copy"><span class="nav-group">チャレンジ</span><span class="nav-title">キャラクター紹介</span></span><span class="nav-arrow" aria-hidden="true">›</span></a>
+          <a href="#q8" aria-label="問8 チャレンジ オリジナルのプログラムを作る"><span class="nav-number">8</span><span class="nav-copy"><span class="nav-group">チャレンジ</span><span class="nav-title">オリジナル作品</span></span><span class="nav-arrow" aria-hidden="true">›</span></a>
+        </nav>
+        <p class="sidebar-note">問1〜問6 → 問7・問8<br>自分のペースで進めましょう。</p>
+      </aside>
+
+      <main id="main" class="main-content">
+        <noscript><p class="no-script-note">すべての問題を順番に表示しています。問題の一覧から、読みたい問題へ移動できます。</p></noscript>
+
+        <article id="q1" class="question" aria-labelledby="q1-title">
+          <header class="question-heading"><div class="question-meta"><span class="question-number">問1</span><span class="topic">print()</span><span class="question-kind">基本</span></div><h2 id="q1-title" tabindex="-1">あいさつを表示する</h2></header>
+          <div class="question-body">
+            <section class="task" aria-labelledby="q1-task"><h3 id="q1-task" class="section-label">やること</h3><p>画面に、次のメッセージを表示するプログラムを作りなさい。</p></section>
+            <section class="output-example" aria-labelledby="q1-output"><h3 id="q1-output" class="output-label"><span class="output-dot" aria-hidden="true"></span>実行例</h3><pre class="output"><code>こんにちは、Python！</code></pre></section>
+          </div>
+          <section class="extension" aria-labelledby="q1-extra"><h3 id="q1-extra">完成したら</h3><p>表示するメッセージを、自分の好きな言葉に変更して実行してみましょう。</p></section>
+        </article>
+
+        <article id="q2" class="question" aria-labelledby="q2-title">
+          <header class="question-heading"><div class="question-meta"><span class="question-number">問2</span><span class="topic">表示する順番</span><span class="question-kind">基本</span></div><h2 id="q2-title" tabindex="-1">ゲームのメッセージを表示する</h2></header>
+          <div class="question-body">
+            <section class="task" aria-labelledby="q2-task"><h3 id="q2-task" class="section-label">やること</h3><p>次の3つのメッセージを、実行例と同じ順番で、1行ずつ表示するプログラムを作りなさい。</p></section>
+            <section class="output-example" aria-labelledby="q2-output"><h3 id="q2-output" class="output-label"><span class="output-dot" aria-hidden="true"></span>実行例</h3><pre class="output"><code>冒険を始めます
+宝箱を見つけました
+ゲームを終了します</code></pre></section>
+          </div>
+          <section class="extension" aria-labelledby="q2-extra"><h3 id="q2-extra">完成したら</h3><p>コードの順番を入れ替えて、表示される順番がどう変わるか確かめましょう。</p></section>
+        </article>
+
+        <article id="q3" class="question" aria-labelledby="q3-title">
+          <header class="question-heading"><div class="question-meta"><span class="question-number">問3</span><span class="topic">変数</span><span class="question-kind">基本</span></div><h2 id="q3-title" tabindex="-1">好きなものを変数に入れる</h2></header>
+          <div class="question-body">
+            <section class="task" aria-labelledby="q3-task"><h3 id="q3-task" class="section-label">やること</h3><p>次の条件を満たすプログラムを作りなさい。</p><ul class="requirements"><li><code>favorite</code>という変数に、文字列の「マインクラフト」を入れる。</li><li><code>print()</code>で、変数<code>favorite</code>の中身を表示する。</li></ul><p class="task-note"><code>print()</code>の中に「マインクラフト」と直接書かず、変数を使ってください。</p></section>
+            <section class="output-example" aria-labelledby="q3-output"><h3 id="q3-output" class="output-label"><span class="output-dot" aria-hidden="true"></span>実行例</h3><pre class="output"><code>マインクラフト</code></pre></section>
+          </div>
+          <section class="extension" aria-labelledby="q3-extra"><h3 id="q3-extra">完成したら</h3><p>変数に入れる文字列を、自分の好きなゲームや食べ物などに変更して実行してみましょう。</p></section>
+        </article>
+
+        <article id="q4" class="question" aria-labelledby="q4-title">
+          <header class="question-heading"><div class="question-meta"><span class="question-number">問4</span><span class="topic">変数を繰り返し使う</span><span class="question-kind">基本</span></div><h2 id="q4-title" tabindex="-1">同じ変数を何度も使う</h2></header>
+          <div class="question-body">
+            <section class="task" aria-labelledby="q4-task"><h3 id="q4-task" class="section-label">やること</h3><p>次の条件を満たすプログラムを作りなさい。</p><ul class="requirements"><li><code>message</code>という変数に、文字列の「準備OK！」を入れる。</li><li>変数<code>message</code>を使って、同じメッセージを3行表示する。</li></ul><p class="task-note">変数に文字列を入れるコードは、1回だけ書いてください。表示には、<code>print()</code>を3回使ってください。</p></section>
+            <section class="output-example" aria-labelledby="q4-output"><h3 id="q4-output" class="output-label"><span class="output-dot" aria-hidden="true"></span>実行例</h3><pre class="output"><code>準備OK！
+準備OK！
+準備OK！</code></pre></section>
+          </div>
+          <section class="extension" aria-labelledby="q4-extra"><h3 id="q4-extra">完成したら</h3><p>変数に入れる文字列を1か所だけ変更して、表示される3行すべてが変わることを確かめましょう。</p></section>
+        </article>
+
+        <article id="q5" class="question" aria-labelledby="q5-title">
+          <header class="question-heading"><div class="question-meta"><span class="question-number">問5</span><span class="topic">再代入 · f文字列</span><span class="question-kind">基本</span></div><h2 id="q5-title" tabindex="-1">変数の中身を変更する</h2></header>
+
+          <details id="f-string-guide" class="f-string-guide" open>
+            <summary><span class="guide-tag">ここから使う</span><span>f文字列ガイド</span></summary>
+            <div class="guide-content">
+              <div class="guide-explanation"><p>f文字列を使うと、文章の中に変数の中身を入れて表示できます。</p><p>文字列の前に<code>f</code>を付けて、文章に入れたい変数名を<code>{ }</code>で囲みます。</p><p class="guide-small"><code>{ }</code>は半角の波かっこです。文字列だけでなく、数値が入った変数も同じように使えます。</p><p class="guide-small">詳しくは、第2回の授業資料も確認してみましょう。</p></div>
+              <div class="guide-example"><h3 class="section-label">コード例</h3><pre class="source-code"><code>food = <span class="syntax-string">"りんご"</span>
+print(<span class="syntax-accent">f</span><span class="syntax-string">"好きな食べ物は</span><span class="syntax-accent">{food}</span><span class="syntax-string">です"</span>)</code></pre><h3 class="section-label guide-result-label">実行結果</h3><pre class="guide-output"><code>好きな食べ物はりんごです</code></pre></div>
+            </div>
+          </details>
+
+          <div class="question-body">
+            <section class="task" aria-labelledby="q5-task"><h3 id="q5-task" class="section-label">やること</h3><p>装備を変更するプログラムを、次の手順で作りなさい。</p><ol class="requirements"><li><code>weapon</code>という変数に、文字列の「剣」を入れる。</li><li>f文字列を使って、「装備は剣です」と表示する。</li><li>同じ変数<code>weapon</code>に、文字列の「弓」を入れ直す。</li><li>f文字列を使って、「装備は弓です」と表示する。</li></ol><p class="task-note">「剣」「弓」の部分は、文章に直接書かず、変数<code>weapon</code>を使ってください。</p></section>
+            <section class="output-example" aria-labelledby="q5-output"><h3 id="q5-output" class="output-label"><span class="output-dot" aria-hidden="true"></span>実行例</h3><pre class="output"><code>装備は剣です
+装備は弓です</code></pre></section>
+          </div>
+          <section class="extension" aria-labelledby="q5-extra"><h3 id="q5-extra">完成したら</h3><p>2回目に変数へ入れる文字列を「杖」に変更して、2行目だけが変わることを確かめましょう。</p></section>
+        </article>
+
+        <article id="q6" class="question" aria-labelledby="q6-title">
+          <header class="question-heading"><div class="question-meta"><span class="question-number">問6</span><span class="topic">コードの修正</span><span class="question-kind">基本</span></div><h2 id="q6-title" tabindex="-1">間違ったコードを直す</h2></header>
+          <div class="question-body">
+            <section class="task" aria-labelledby="q6-task"><h3 id="q6-task" class="section-label">やること</h3><p>次のコードには、直す必要があるところが2か所あります。</p><p>実行例のように表示されるよう、コードを直しなさい。</p><h3 class="section-label source-label">直すコード</h3><pre class="source-code"><code>game = <span class="syntax-string">"マインクラフト"</span>
+print(<span class="syntax-string">"game"</span>)
+print(<span class="syntax-string">"また遊びたいです"</span></code></pre><h3 class="section-label source-label">条件</h3><ul class="requirements"><li>1行目は変更しない。</li><li>2行目では、変数<code>game</code>の中身を表示する。</li><li>3行目では、「また遊びたいです」と表示する。</li></ul></section>
+            <section class="output-example" aria-labelledby="q6-output"><h3 id="q6-output" class="output-label"><span class="output-dot" aria-hidden="true"></span>実行例</h3><pre class="output"><code>マインクラフト
+また遊びたいです</code></pre></section>
+          </div>
+          <section class="extension" aria-labelledby="q6-extra"><h3 id="q6-extra">完成したら</h3><p>変数<code>game</code>に入れる文字列を変更して、表示される1行目が変わることを確かめましょう。</p></section>
+        </article>
+
+        <article id="q7" class="question" aria-labelledby="q7-title">
+          <header class="question-heading"><div class="question-meta"><span class="question-number">問7</span><span class="topic">変数 · f文字列</span><span class="question-kind challenge-kind">チャレンジ</span></div><h2 id="q7-title" tabindex="-1">キャラクターを紹介する</h2></header>
+          <div class="question-body">
+            <section class="task" aria-labelledby="q7-task"><h3 id="q7-task" class="section-label">やること</h3><p>次の3つの変数を使って、キャラクターを紹介するプログラムを作りなさい。</p><div class="table-wrap"><table><caption class="sr-only">変数名と入れる値</caption><thead><tr><th scope="col">変数名</th><th scope="col">入れる値</th></tr></thead><tbody><tr><th scope="row"><code>name</code></th><td>文字列の「ノナカ」</td></tr><tr><th scope="row"><code>weapon</code></th><td>文字列の「弓」</td></tr><tr><th scope="row"><code>level</code></th><td>数値の<code>5</code></td></tr></tbody></table></div><p>f文字列を使って、実行例のように表示してください。</p><p class="task-note">名前・装備・レベルの部分は、文章に直接書かず、それぞれの変数を使ってください。</p><a class="guide-link" href="#q5">問5のf文字列ガイドを見る <span aria-hidden="true">↗</span></a></section>
+            <section class="output-example" aria-labelledby="q7-output"><h3 id="q7-output" class="output-label"><span class="output-dot" aria-hidden="true"></span>実行例</h3><pre class="output"><code>名前はノナカです
+装備は弓です
+レベルは5です</code></pre></section>
+          </div>
+          <section class="extension" aria-labelledby="q7-extra"><h3 id="q7-extra">完成したら</h3><p>3つの変数の値を変更して、自分で考えたキャラクターを紹介してみましょう。</p></section>
+        </article>
+
+        <article id="q8" class="question" aria-labelledby="q8-title">
+          <header class="question-heading"><div class="question-meta"><span class="question-number">問8</span><span class="topic">ここまでの組み合わせ</span><span class="question-kind challenge-kind">チャレンジ</span></div><h2 id="q8-title" tabindex="-1">オリジナルのプログラムを作る</h2></header>
+          <div class="question-body">
+            <section class="task" aria-labelledby="q8-task"><h3 id="q8-task" class="section-label">やること</h3><p>ここまでに使ったコードを組み合わせて、オリジナルのプログラムを作りなさい。</p><p>テーマは自由です。ゲームのメッセージ、キャラクター紹介、お店の案内など、好きなものを考えてください。</p><h3 class="section-label source-label">条件</h3><ul class="requirements"><li>変数を3つ以上使う。</li><li>6行以上表示する。</li><li>f文字列を使った表示を2回以上入れる。</li><li>少なくとも1つの変数は、プログラムの途中で中身を変更する。</li><li>中身を変更する前と後の値を、それぞれ表示する。</li></ul><a class="guide-link" href="#q5">問5のf文字列ガイドを見る <span aria-hidden="true">↗</span></a></section>
+            <section class="output-example" aria-labelledby="q8-output"><h3 id="q8-output" class="output-label"><span class="output-dot" aria-hidden="true"></span>実行例</h3><pre class="output"><code>冒険を始めます
+名前はノナカです
+レベルは5です
+装備は剣です
+装備を変更しました
+装備は弓です</code></pre><p class="example-note">これは一例です。同じ内容にする必要はありません。条件を満たす、自分のプログラムを作りましょう。</p></section>
+          </div>
+          <section class="extension" aria-labelledby="q8-extra"><h3 id="q8-extra">完成したら</h3><p>変数やメッセージを追加して、プログラムをさらに充実させましょう。</p></section>
+        </article>
+
+        <nav id="question-controls" class="question-controls" aria-label="前後の問題に移動" hidden>
+          <a id="previous-question" class="previous-link" href="#q1"><span aria-hidden="true">←</span> 前の問題</a>
+          <span id="question-position" class="question-position">問1 / 8</span>
+          <a id="next-question" class="next-link" href="#q2">次の問題 <span aria-hidden="true">→</span></a>
+        </nav>
+        <span id="question-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></span>
+        <p class="work-note">このページではコードを実行しません。<a href="https://tech-nexus.jp" target="_blank" rel="noopener noreferrer">TechNexus<span class="sr-only">（新しいタブ）</span></a>で動かして確かめましょう。</p>
+      </main>
+    </div>
+    <footer class="site-footer"><span>篠崎中学校 チャレンジクラス</span><span>Python コーディング課題</span></footer>
+  </div>
+</body>
+</html>
